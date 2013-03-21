@@ -17,7 +17,8 @@ class Program:
     def _read_instructions(self, infile):
         self.instructions = []
         commands.SetSymbolTable(self.symbol_table)
-        for i, line in enumerate(infile):
+        for line in infile:
+            if line == '\n': continue
             cmd = re.split('\s+', line)
             if cmd[-1] == '': cmd = cmd[:-1]
             command = commands.NoopCommand() if len(cmd[1]) == 0 else commands.ConstructCommand(cmd[1], cmd[2:])

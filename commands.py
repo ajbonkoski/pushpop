@@ -171,8 +171,8 @@ class PushPcCommand(Command):
         return False
 
 @NewCommand
-class PopSpCommand(Command):
-    name = 'popsp'
+class PopPcCommand(Command):
+    name = 'poppc'
     def __init__(self, args): 
         self.require_args(args, []);
 
@@ -191,18 +191,6 @@ class LoadCommand(Command):
         addr = state.pop_int32()
         data = state.read_mem(addr)
         state.push_int32(data)
-        return False
-
-@NewCommand
-class StoreCommand(Command):
-    name = 'store'
-    def __init__(self, args): 
-        self.require_args(args, []);
-
-    def execute(self, state):
-        addr = state.pop_int32()
-        data = state.pop_int32()
-        state.write_mem(addr, data)
         return False
 
 @NewCommand
