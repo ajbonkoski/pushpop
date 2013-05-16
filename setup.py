@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='pushpo',
+setup(name='pushpop',
       version='1.0',
       description='A very simple stack-based VM',
       url='https://bitbucket.org/abonkosk/pushpop',
