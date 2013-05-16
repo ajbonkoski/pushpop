@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import pushpop
+import sys
+
+def main():
+    if len(sys.argv) != 2:
+        print "usage: "+sys.argv[0]+" <program-file>"
+        return
+    pushpop.interpretor.execute_file(sys.argv[1])
+
+
+if __name__ == '__main__':
+    try: main()
+    except KeyboardInterrupt: pass
+

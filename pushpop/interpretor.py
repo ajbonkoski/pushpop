@@ -15,22 +15,9 @@ def execute_file(fname):
             pc = state.read_program_cntr()
             state.write_program_cntr(pc + 1)
             cmd = program.fetch(pc)
-            if DEBUG_MODE: 
+            if DEBUG_MODE:
                 print "Executing: '"+str(cmd)+"'"
             done = cmd.execute(state)
 
     except Exception as e: print e
     finally: print "Stack:", str(state)
-
-
-def main():
-    if len(sys.argv) != 2:
-        print "usage: "+sys.argv[0]+" <program-file>"
-        return
-    execute_file(sys.argv[1])
-
-
-if __name__ == '__main__':
-    try: main()
-    except KeyboardInterrupt: pass
-
